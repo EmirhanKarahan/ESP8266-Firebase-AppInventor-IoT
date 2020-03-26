@@ -8,7 +8,7 @@
 
 void setup() {
   pinMode(2,OUTPUT);
-//-----------Haberleşme ve Bağlantılar-------------------- 
+//-----------communications-------------------- 
   Serial.begin(9600);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("connecting");
@@ -23,7 +23,7 @@ void setup() {
 }
 
 void loop() {
- // burada lamba durumunu string olarak depolamamız MIT APP inventorda değer değiştirdiğin zaman integer döndürüyor o sebeple. 
+ // here we set lampStatus as a String because MIT APP Intentor gives us Strings.
   String lampStatus = Firebase.getString("lamp");
   Serial.print("Lamp Status = "); Serial.println(lampStatus);
     if(lampStatus == "1")
